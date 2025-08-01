@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "方案項目", "方案項�
 		n8n\Simple Chat.json = n8n\Simple Chat.json
 		n8n\simpleflow.png = n8n\simpleflow.png
 		n8n\tranname.png = n8n\tranname.png
+		n8n\webhookurl.png = n8n\webhookurl.png
 		n8n\xafchat.png = n8n\xafchat.png
 	EndProjectSection
 EndProject
