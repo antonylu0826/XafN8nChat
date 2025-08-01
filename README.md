@@ -1,64 +1,64 @@
-# XAF 與 n8n 的 AI 聊天整合
+# AI Chat Integration between XAF and n8n
 
 ![XAF n8n Chat](https://github.com/antonylu0826/XafN8nChat/blob/master/n8n/xafchat.png)
 
-本專案展示如何使用 Blazor UI，將 XAF 的 AI 聊天功能與 n8n 整合。此整合可實現 XAF 的 AI 服務與 n8n 工作流程自動化平台之間的無縫通信。
+This project demonstrates how to integrate XAF’s AI chat functionality with n8n using a Blazor UI. The integration enables seamless communication between XAF's AI services and the n8n workflow automation platform.
 
-## 概述
+## Overview
 
-此解決方案可實現：
-- **XAF AI 聊天**：由 AI 驅動的互動式對話系統。
-- **n8n 整合**：透過 n8n 工作流程回應聊天事件並執行對應動作，自動化處理流程。
+This solution provides:
+- **XAF AI Chat**: An interactive dialogue system powered by AI.
+- **n8n Integration**: Automates processes by responding to chat events via n8n workflows.
 
-## 先決條件
+## Prerequisites
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-- Blazor Server 主機環境
-- 一個可運作的 n8n 實例（自架或雲端版本）
-- 已啟用 AI 聊天功能的 XAF 設定
+- A Blazor Server hosting environment
+- A running instance of n8n (self-hosted or cloud)
+- XAF configuration with AI chat functionality enabled
 
-## 安裝與設定
+## Installation & Setup
 
-### 1. 設定 XAF AI 聊天功能
+### 1. Configure XAF AI Chat
 
-- 複製 XAF 專案
+- Clone the XAF project:
     ```bash
     git clone https://github.com/antonylu0826/XafN8nChat.git
     ```
-### 2. 設定 n8n
 
-- 根據官方說明安裝並啟動 n8n：[n8n 安裝指南](https://docs.n8n.io/getting-started/installation/)
-- 建立可接收應用程式端點或事件的工作流程，可以上傳儲存庫中的範例工作流程 ([n8n sample](https://github.com/antonylu0826/XafN8nChat/blob/master/n8n/Simple%20Chat.json))。
+### 2. Set Up n8n
+
+- Install and start n8n following the official guide: [n8n Installation Guide](https://docs.n8n.io/getting-started/installation/)
+- Create a workflow that can receive application endpoints or events. You can upload the sample workflow from the repository ([n8n sample](https://github.com/antonylu0826/XafN8nChat/blob/master/n8n/Simple%20Chat.json)).
 ![Sample Flow](https://github.com/antonylu0826/XafN8nChat/blob/master/n8n/simpleflow.png)
-- 取得 n8n 的 webhook URL，這將用於 Blazor Server 與 n8n 之間的通信。
+- Get the webhook URL from n8n. This will be used to communicate between Blazor Server and n8n.
 ![WebHook Url](https://github.com/antonylu0826/XafN8nChat/blob/master/n8n/webhookurl.png)
-    
 
-### 3. 更新 Blazor Server 應用程式
+### 3. Update Blazor Server Application
 
-- 在 `Startup.cs` 中，更新服務設定以包含 XAF AI 聊天模組。
+- In `Startup.cs`, update the service configuration to include the XAF AI chat module:
     ```csharp
     services.Addn8nChat(configureOptions => {
         configureOptions.ChatUrl = "<your_n8n_webhook_url>";
     });
     ```
 
-例如，您的控制器可以包含一個動作，用來將聊天訊息發送至 n8n webhook：
+For example, your controller might include an action that sends a chat message to the n8n webhook:
 
-## 執行應用程式
+## Run the Application
 
-1. **建置並執行 Blazor Server 專案**  
+1. **Build and run the Blazor Server project**
 
-## 疑難排解
+## Troubleshooting
 
-- **API 錯誤：** 確認 webhook URL 是否正確，且 n8n 已運行。
-- **設定問題：** 確保 XAF 的 AI 聊天模組與 n8n 設定（例如 API 金鑰）正確無誤。
-- **網路連線問題：** 測試 Blazor Server 與 n8n 實例之間的連線是否正常。
+- **API Errors:** Ensure the webhook URL is correct and n8n is running.
+- **Configuration Issues:** Verify that the XAF AI chat module and n8n setup (e.g., API key) are correctly configured.
+- **Network Connectivity:** Test the connection between the Blazor Server and the n8n instance.
 
-## 其他資源
+## Additional Resources
 
-- [XAF 官方文件](https://docs.devexpress.com/XAF)
-- [n8n 官方文件](https://docs.n8n.io)
-- [.NET 8 官方文件](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8)
+- [XAF Official Documentation](https://docs.devexpress.com/XAF)
+- [n8n Official Documentation](https://docs.n8n.io)
+- [.NET 8 Official Documentation](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8)
 
-本 README 提供整合 XAF 的 AI 聊天功能與 n8n 的簡要指南。請依照您的實際環境需求進行相應的調整。
+This README provides a brief guide for integrating XAF's AI chat functionality with n8n. Please adjust it according to your specific environment and needs.
