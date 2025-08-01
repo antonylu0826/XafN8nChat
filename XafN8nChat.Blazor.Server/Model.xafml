@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Options UIType="TabbedMDI"
+         RestoreTabbedMdiLayout="True"
+         ShowTabImage="True"
+         VirtualScrollingEnabled="True">
+  </Options>
+  <NavigationItems NavigationStyle="Accordion">
+  </NavigationItems>
+	<Views>
+		<DashboardView Id="AIChatDashboard" Caption="Chat" ImageName="Glyph_Message" IsNewNode="True">
+			<Items IsNewNode="True">
+				<ControlDetailItem Id="SimpleAIChatPlaceholder" ControlTypeName="XafN8nChat.Blazor.Server.Editors.ChatUI.N8nChatAdapter" IsNewNode="True" />
+			</Items>
+		</DashboardView>
+	</Views>	
+</Application>
